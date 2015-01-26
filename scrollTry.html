@@ -1,0 +1,49 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+      <script src="js/jquery.js"></script>
+
+<script>$(document).ready(function(){
+	
+	var div=$('#header');
+	var start=$(div).offset().top;
+	$.event.add(window,"scroll",function(){
+		var p=$(window).scrollTop();
+		$(div).css('position',((p)>start)?'fixed':'static');
+		$(div).css('top',((p)>start)?'0px':'');});});
+        
+        </script>   
+<body>
+
+ 
+ 
+ 
+<div id="header" style="position: static; background-color:#03F">
+    <h1>Scroll Fix Header like Facebook in JQuery</h1>
+</div>
+ 
+<p>Some dumb text to add scrolling in page1 <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page2 <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+<p>Some more dumb text to add scrolling in page <br><br><br><br><br></p>
+
+</body>
+
+</html>

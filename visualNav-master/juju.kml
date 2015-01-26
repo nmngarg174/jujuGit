@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>juju</name>
+		<description><![CDATA[allNearPlaces]]></description>
+		 <Style id="style20">
+    <IconStyle>
+      <Icon>
+        <href>http://mapsengine.google.com/map/kml?mid=zvqf0zA9ioWw.k5LsXyYVDBdg</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+		
+		<!--<NetworkLink>
+			<name>juju</name>
+			<Link>
+				<href>http://mapsengine.google.com/map/kml?mid=zvqf0zA9ioWw.k5LsXyYVDBdg</href>
+			</Link>
+		</NetworkLink>-->
+	</Document>
+</kml>
