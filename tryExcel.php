@@ -1,5 +1,8 @@
 <?php
 /***** EDIT BELOW LINES *****/
+
+// access all the code here
+
 $DB_Server = "localhost"; // MySQL Server
 $DB_Username = "root"; // MySQL Username
 $DB_Password = ""; // MySQL Password

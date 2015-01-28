@@ -1,33 +1,61 @@
-<?php 
-	// adding the category to the database using the normalization 
+<?php
+	
+	//changing the password 
+	
+	
 	session_start(); 
 	error_reporting(0); 
-	
-	$mysqli=new mysqli('localhost','root','','a9748231_user');
-	
-	// first rerieve the id values of the last item add 100 to it then insert the new item 
-	
-	if(isset($_POST['submit'])){
-		//	echo 'reacj';
-		$category=$_POST['category']; 
-	
-	$sql1='select max(id) from addcategory ';
-	
-	$result=$mysqli->query($sql1);
-	
-	$row=$result->fetch_array();   
-	
-	$val=$row[0]; 
-	
-	$val+=100; 
-	//echo  $val;
-	$sql='insert into addcategory(id,category,endValue,updateStatus) values ('.$val.',"'.$category.'",'.$val.',1)'; 
-//	echo $sql;
-	if($mysqli->query($sql)){
-			$_SESSION['message1']='Category is inserted'; 
-			echo 'bjhbjh';
+	if(isset($_POST['submit']))
+	{
+		
+		$pwd1=$_POST['pwd1']; 
+		//echo $name; 
+		echo $pwd1; 
+		$pwd2=$_POST['pwd2']; 
+		//echo $password;
+			echo $pwd2 ; 
+		$pwd3=$_POST['pwd3'];
+			echo $pwd3; 
+		$mysqli=new mysqli('localhost','root','','a9748231_user');
+		
+		if(!strcmp($pwd2,$pwd3)){
+			echo 'match';	
+				$sql1='select password from retailer where name="'.$_SESSION['name'].'"';
+				echo $sql1;  
+				$result=$mysqli->query($sql1); 
+				$row=$result->fetch_array(); 
+				echo $row[0]; 
+				
+				if(!strcmp($pwd1,$row[0])){
+					
+					//change the password 
+					
+					$sql3='update retailer set password="'.$pwd2.'" where name="'.$_SESSION['name'].'"';
+					echo $sql3; 
+					if($mysqli->query($sql3)){
+							$_SESSION['message']='Password updated successfully';
+					}else{
+						echo 'error occured' ; 	
+					}	
+				}
+				 
+		}else{
+			$_SESSION['errmsg']='New passwords dont match'; 
+				
 		}
+		
+		//$sql='insert into retailer(name,password) values("'.$name.'","'.$password.'") ';
+		
+		// after insertion 
+		
+		
+		  
+		
+		
 	}
+
+	
+	
 ?>
 
 <style>
@@ -183,12 +211,7 @@ h1{
     <link href="css/main_gray.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
@@ -217,17 +240,19 @@ h1{
                         <a class="page-scroll" href="indexNew.php" style="color:#696">Juju</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="newAddItem.php" style="color:#696">Add An Item</a>
+                        <a class="page-scroll" href="#download" style="color:#696">Add An Item</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#" style="color:#696">Add A Category</a>
+                        <a class="page-scroll" href="#recent-works" style="color:#696">Add A Category</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="newAddEmp.php?log=in" style="color:#696">Add Employee</a>
+                        <a class="page-scroll" href="#map" style="color:#696">Add Employee</a>
                     </li>
-                    
                     <li>
-                        <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
+                        <a class="page-scroll" href="login1.php" style="color:#696">Add</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="login1.php" style="color:#696">Change Password</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
@@ -242,50 +267,62 @@ h1{
 	
     <section id="about-us "  >
     
-        <div class="container " style="position:relative; top:40px;"  >
-			<div class='center hidden-xs wow fadeInDown animated'>
-				<h2 style="color:#696"></h2>
-				<p class="lead" style="color:#696"><br></p>
-	
-    
-    				<!-- srart -->
-                    
-                    
-   <div class='container-fluid'>   
+			
+            
+			<!-- about us slider -->
+			
+ <div class='container-fluid'>
+                </div>
                     <div class='row'>
+                    <h1 style="position:relative; left:25px; color:#666;"><center>Change the password</center></h1>
                     
-                                    <h1 style="position:relative; left:25px; color:#666">Add a Category</h1>
                     <div class='text-danger' style="position:relative; left:20px; ">
-                    <?php echo $_SESSION['message1'] ?>
+                    <?php echo $_SESSION['message'] ?>
                     </div>
-                    	<div class='col-md-12' style="position:relative; left:25px; ">
+                    <div class='col-md-4'>
+                    </div>
+                    	<div class='col-md-4' style="position:relative; left:25px; text-align:center;">
                         	<!-- To add an item in the menu we populate a list of all the categories , after selecting the category he uploads a file and writes its name there  
                             -->
-                            <div class='col-md-4'>
-                            </div>
-                            <div class='col-md-4'>
-                            <form class='form-horizontal' role='form' action='addCategory.php' method="post" enctype="multipart/form-data">
+                            <form class='form-horizontal' role='form' action='chgPasswd.php' method="post" enctype="multipart/form-data">
                             	
                                 <div class='form-group'>
                                 
-                    
-                                	<label for='category' class='control-label'>Enter the category</label>
                                     
-                                	<input type="text" id='category' name='category' width=50px; class="form-control"   />
+                                	<label for='pwd1' class='control-label'>Enter the previous password</label>
+                                    
+                                	<input type="password" id='pwd1' name='pwd1' class="form-control"   />
                                    
                                 </div>
-                                <button type="submit" name='submit' class='btn btn-default'>Enter the Category</button>
+                                <br />
+                                <div class='form-group'>
+                                
+                                    
+                                	<label for='pwd2' class='control-label'>Enter the new password</label>
+                                    
+                                	<input type="password" id='pwd2' name='pwd2' class="form-control"   />
+                                   
+                                </div>
+                                <br />
+                                <div class='form-group'>
+                                
+                                    
+                                	<label for='password' class='control-label'>Renter the new password</label>
+                                    
+                                	<input type="password" id='pwd3' name='pwd3' class="form-control"   />
+                                   
+                                </div>
+                                <br />
+                                
+                                <div class='form-group'>
+                                <button type="submit" name='submit' class='btn btn-default'>change the password</button>
+                                </div>
                                      </form>
                         </div>
-                        
                 </div>
-</div>          
-<div class='col-md-4'>
-</div>    
-    		</div>
-			</div>
-			<!-- about us slider -->
-			
+                </div>                        
+                </div>
+</div>           
                 	
 </div>
                     

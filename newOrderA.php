@@ -2,6 +2,7 @@
 	
 	// include the auto scroll feature into the php projct 
 	//create a log out session here 
+	// remove the jquery from the navigation bar here
 	error_reporting(0); 
 	$pageNew = $_SERVER['PHP_SELF'];
 	$pageNew.='?log=in';
@@ -136,17 +137,9 @@
     <link href="css/main_gray.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" style="background:url(images/slider/newBg1.jpg)">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
 
-    <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top animated fadeInDown" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -155,7 +148,7 @@
                 </button>
                 
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="glyphicon glyphicon-glass"></i>  <span class="light">JuJu's</span> Cafe
+                    <i class="glyphicon glyphicon-glass" style="color:#696"></i>  <span class="light" style="color:#696">JuJu's Cafe</span>
                 </a>
             </div>
 
@@ -167,25 +160,25 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="indexNew.php">Juju</a>
+                        <a class="page-scroll" href="indexNew.php" style="color:#696">Juju</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Current Orders</a>
+                        <a class="page-scroll" href="#download" style="color:#696">Current Orders</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#recent-works">Take An Order</a>
+                        <a class="page-scroll" href="#recent-works" style="color:#696">Take An Order</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#map">Orders Delivered</a>
+                        <a class="page-scroll" href="#map" style="color:#696">Orders Delivered</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php">Add</a>
+                        <a class="page-scroll" href="login1.php" style="color:#696">Add</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php">Balance Sheet</a>
+                        <a class="page-scroll" href="login1.php" style="color:#696">Balance Sheet</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php">Log-Out</a>
+                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
                     </li>
                 </ul>
             </div>
@@ -199,8 +192,8 @@
     <section id="about-us">
         <div class="container wow fadeInDown animated" >
 			<div class="center " style="position:relative;top:40px; color:#FFF" >
-				<h2 style=" color:#FFF" >Orders Placed</h2>
-				<p class="lead">Take a look at all the<br> Orders placed from the JuJu's Android Application</p>
+				<h2 style="color:#696" >Orders Placed</h2>
+				<p class="lead" style="color:#696">Take a look at all the<br> Orders placed from the JuJu's Android Application</p>
 			</div>
 			
 			<!-- about us slider -->
@@ -251,7 +244,7 @@
 							
 						</ul>
 					</li>
-					<li class="button" style="padding-left:5px;"><a href="#" data-toggle='modal' data-target='#basicModal<?php echo $row[0]?>' style="padding-left:5px;"> Send Mail Confirmation</a></li>
+					<li class="button animated fadeInDown" style="padding-left:5px;" ><a href="#" data-toggle='modal' data-target='#basicModal<?php echo $row[0]?>' style="padding-left:5px;" > Send Mail Confirmation</a></li>
                     <li class="button" style="padding-left:5px;"><a href="#" data-toggle='modal' data-target='#basicModal<?php echo $row[5]+2 ?>' style="padding-left:5px;"> View Order Details</a></li>
                     
 				</ul>
@@ -462,7 +455,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
+   <script //src="js/jquery.easing.min.js"></script>
 
     <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>

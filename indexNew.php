@@ -82,8 +82,9 @@
                         <a class="page-scroll" href="newFulfilled.php?log=in">Orders Delivered</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php">Add</a>
+                        <a class="page-scroll" href="newAdd.php?log=in">Add</a>
                     </li>
+                    
                     <li>
                         <a class="page-scroll" href="login1.php">Balance Sheet</a>
                     </li>

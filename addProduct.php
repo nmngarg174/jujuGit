@@ -119,24 +119,13 @@
     </header><!--/header-->
  
     
-   <!-- <div style="position:relative; left:300px">
 
-<div class="fotorama " data-allowfullscreen="true"   data-transition="crossfade" data-autoplay="true"
-     data-nav="thumbs">
-             
-                     <div class='container-fluid'>   
-                    <div class='row'>
-                    <h1 style="position:relative; left:25px;">Add an Item</h1>
-                    <div class='text-danger' style="position:relative; left:20px; ">
                     <?php echo $_SESSION['message'] ?>
-                    </div>
                     	<div class='col-md-3' style="position:relative; left:25px; ">
-                        	<!-- To add an item in the menu we populate a list of all the categories , after selecting the category he uploads a file and writes its name there  
-                            -->
+
                             <form class='form-horizontal' role='form' action='image.php' method="post" enctype="multipart/form-data">
                             	<div class='form-group'>
-                                	<!-- create a select box here using php and bootstrap 
-                                    -->
+
                                     
                                     <label for='sel'>Select a category</label>
                                     
@@ -188,6 +177,7 @@
                     	<div class='col-md-3' style="position:relative; left:25px; ">
                         	<!-- To add an item in the menu we populate a list of all the categories , after selecting the category he uploads a file and writes its name there  
                             -->
+                            <!--
                             <form class='form-horizontal' role='form' action='addCategory.php' method="post" enctype="multipart/form-data">
                             	
                                 <div class='form-group'>
@@ -200,6 +190,8 @@
                                 </div>
                                 <button type="submit" name='submit' class='btn btn-default'>Enter the item</button>
                                      </form>
+                                     
+                                     -->
                         </div>
                         <div class='col-md-2'>
                         </div>

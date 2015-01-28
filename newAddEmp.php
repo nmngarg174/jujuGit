@@ -1,34 +1,35 @@
-<?php 
-	// adding the category to the database using the normalization 
+<?php
+
+
+// to add an employee we insert the emp into the database here 
 	session_start(); 
 	error_reporting(0); 
-	
-	$mysqli=new mysqli('localhost','root','','a9748231_user');
-	
-	// first rerieve the id values of the last item add 100 to it then insert the new item 
-	
-	if(isset($_POST['submit'])){
-		//	echo 'reacj';
-		$category=$_POST['category']; 
-	
-	$sql1='select max(id) from addcategory ';
-	
-	$result=$mysqli->query($sql1);
-	
-	$row=$result->fetch_array();   
-	
-	$val=$row[0]; 
-	
-	$val+=100; 
-	//echo  $val;
-	$sql='insert into addcategory(id,category,endValue,updateStatus) values ('.$val.',"'.$category.'",'.$val.',1)'; 
-//	echo $sql;
-	if($mysqli->query($sql)){
-			$_SESSION['message1']='Category is inserted'; 
-			echo 'bjhbjh';
+	if(isset($_POST['submit']))
+	{
+		
+		$name=$_POST['name']; 
+		//echo $name; 
+		
+		$password=$_POST['password']; 
+		echo $password; 
+		$sql='insert into retailer(name,password) values("'.$name.'","'.$password.'") ';
+		
+		// after insertion 
+		
+		$mysqli=new mysqli('localhost','root','','a9748231_user');
+		
+		  if($mysqli->query($sql)){
+			echo 'naman';
+		 	
+			$_SESSION['message']='Employee is added';
+			 
 		}
+		
+		
 	}
+
 ?>
+
 
 <style>
 
@@ -217,17 +218,19 @@ h1{
                         <a class="page-scroll" href="indexNew.php" style="color:#696">Juju</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="newAddItem.php" style="color:#696">Add An Item</a>
+                        <a class="page-scroll" href="#download" style="color:#696">Add An Item</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#" style="color:#696">Add A Category</a>
+                        <a class="page-scroll" href="#recent-works" style="color:#696">Add A Category</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="newAddEmp.php?log=in" style="color:#696">Add Employee</a>
+                        <a class="page-scroll" href="#map" style="color:#696">Add Employee</a>
                     </li>
-                    
                     <li>
-                        <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
+                        <a class="page-scroll" href="login1.php" style="color:#696">Add</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="login1.php" style="color:#696">Change Password</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
@@ -242,50 +245,56 @@ h1{
 	
     <section id="about-us "  >
     
-        <div class="container " style="position:relative; top:40px;"  >
-			<div class='center hidden-xs wow fadeInDown animated'>
-				<h2 style="color:#696"></h2>
-				<p class="lead" style="color:#696"><br></p>
-	
-    
-    				<!-- srart -->
+        <div class="container " style="position:relative; top:60px;"  >
+			
+			
+            
+			<!-- about us slider -->
+			
+             <div class='row'>
+                    <h1 style="position:relative; left:25px; color:#666;"><center>Add an Employee</center></h1>
                     
-                    
-   <div class='container-fluid'>   
-                    <div class='row'>
-                    
-                                    <h1 style="position:relative; left:25px; color:#666">Add a Category</h1>
                     <div class='text-danger' style="position:relative; left:20px; ">
-                    <?php echo $_SESSION['message1'] ?>
+                    <?php echo $_SESSION['message'] ?>
                     </div>
-                    	<div class='col-md-12' style="position:relative; left:25px; ">
+                    <div class='col-md-4'>
+                    </div>
+                    	<div class='col-md-4' style="position:relative; left:25px; text-align:center;">
                         	<!-- To add an item in the menu we populate a list of all the categories , after selecting the category he uploads a file and writes its name there  
                             -->
-                            <div class='col-md-4'>
-                            </div>
-                            <div class='col-md-4'>
-                            <form class='form-horizontal' role='form' action='addCategory.php' method="post" enctype="multipart/form-data">
+                            <form class='form-horizontal' role='form' action='addEmp.php' method="post" enctype="multipart/form-data">
                             	
                                 <div class='form-group'>
                                 
-                    
-                                	<label for='category' class='control-label'>Enter the category</label>
                                     
-                                	<input type="text" id='category' name='category' width=50px; class="form-control"   />
+                                	<label for='name' class='control-label'>Enter the name</label>
+                                    
+                                	<input type="text" id='name' name='name' class="form-control"   />
                                    
                                 </div>
-                                <button type="submit" name='submit' class='btn btn-default'>Enter the Category</button>
+                                <br />
+                                <div class='form-group'>
+                                
+                                    
+                                	<label for='password' class='control-label'>Enter the password</label>
+                                    
+                                	<input type="password" id='password' name='password' class="form-control"   />
+                                   
+                                </div>
+                                <br />
+                                
+                                <div class='form-group'>
+                                <button type="submit" name='submit' class='btn btn-default'>Enter the Member</button>
+                                </div>
                                      </form>
+                        </div>
+                </div>
+           
+                        <div class='col-md-2'>
                         </div>
                         
                 </div>
-</div>          
-<div class='col-md-4'>
-</div>    
-    		</div>
-			</div>
-			<!-- about us slider -->
-			
+</div>           
                 	
 </div>
                     
