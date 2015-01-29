@@ -50,13 +50,13 @@
 		unset($_SESSION['name']); 
 		unset($_SESSION['cart']); 
 		session_destroy() ;
-		header("Location:login1.php"); 	
+		//header("Location:login1.php"); 	
 	}
 	
 	$name=$_SESSION['name']; 
 	
 	if(empty($name)){
-		header("Location:login1.php"); 	
+		//header("Location:login1.php"); 	
 	}
 	
 	//securtiy check is performed now display the tables and the navigation bar ..
@@ -89,21 +89,7 @@
 	// echo $limit;  
 	$sqlNew='select * from cart_online where status=0 order by price desc $limit ';
 	 $sql1="select * from cart_online where status=0  order by bill desc $limit "; 
-		//echo $sql1;
-	 // use the query to generate the results relevant to the page 
-	 //echo $sql1; 
-	 $result=$mysqli->query($sql1);
-	// echo 'connected'; 
-	 
-		 	
-			// print the result in the google format 
-			// display the Price , time of order , time elapsed since the order , name of the 
-			// person and make a modal box to confirm the order sent , by sending a email and 
-			// name of the employee through which order had been sent 
-			// displaying the values here 
-		//	echo 'connected'; 
-		//	echo $row[1].' Date:'.$row[4] ;
-		//	echo 'Address:'.$row[2].' Order:'.$row[3];
+		
 ?>	
 
 <!DOCTYPE html>

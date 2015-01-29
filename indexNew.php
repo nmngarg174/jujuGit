@@ -86,7 +86,7 @@
                     </li>
                     
                     <li>
-                        <a class="page-scroll" href="login1.php">Balance Sheet</a>
+                        <a class="page-scroll" href="newjujuGall.php">Gallery</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="login1.php">Log-Out</a>
@@ -134,7 +134,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>View Our Gallery</h2>
                     <p>You can view all the events happenings at JUJU's with album we share</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Gallery Page</a>
+                    <a href="newjujuGall.php" class="btn btn-default btn-lg">Visit Gallery Page</a>
                 </div>
             </div>
         </div>
