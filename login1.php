@@ -61,7 +61,7 @@
 						}
 						//after creating the cookie move from here 
 						
-						header('Location:index.html?log=in'); 
+						header('Location:indexNew.php?log=in'); 
 			}else{
 					//echo 'You entered incorrect password or username'	; 
 					$errmmsg= 'Entered username and password are wrong !! '; 

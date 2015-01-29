@@ -8,13 +8,13 @@
 	error_reporting(0); 
 	if($log=='logout'){
 		unset($_SESSION['name']); 
-		header("Location:login1.php"); 	
+		//header("Location:login1.php"); 	
 	}
 	
 	$name=$_SESSION['name']; 
 	
 	if(empty($name)){
-		header("Location:login1.php"); 	
+		//header("Location:login1.php"); 	
 	}
 	
 	//securtiy check is performed now display the tables and the navigation bar ..
@@ -111,22 +111,20 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="indexNew.php">Juju</a>
+                        <a class="page-scroll" href="newOrderA.php?log=in">Current Orders</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Current Orders</a>
+                        <a class="page-scroll" href="newTakeOrder.php?log=in">Take An Order</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#recent-works">Take An Order</a>
+                        <a class="page-scroll" href="newFulfilled.php?log=in">Orders Delivered</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#map">Orders Delivered</a>
+                        <a class="page-scroll" href="newAdd.php?log=in">Add</a>
                     </li>
+                    
                     <li>
-                        <a class="page-scroll" href="login1.php">Add</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="login1.php">Balance Sheet</a>
+                        <a class="page-scroll" href="newjujuGall.php">Gallery</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="login1.php">Log-Out</a>

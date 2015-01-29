@@ -3,7 +3,7 @@
 	// include the auto scroll feature into the php projct 
 	//create a log out session here 
 	// remove the jquery from the navigation bar here
-	error_reporting(0); 
+	//error_reporting(0); 
 	$pageNew = $_SERVER['PHP_SELF'];
 	$pageNew.='?log=in';
 	$sec = "240";
@@ -68,11 +68,11 @@
 	//create connection with mysql 
 	
 	$mysqli=new mysqli('localhost','root','','a9748231_user');
-	 $sql='select * from order1 where status=0'; 
+	 $sql='select * from cart_online where status=0'; 
 	 
 	 $result=$mysqli->query($sql);
 	 $count=$result->num_rows; 
-		  
+	 //echo $count; 	  
 	 $last=ceil($count/$page); 
 	 // pageNum gives the total no. count of all the pages and now to show them 
 	 // store the current page no. also here 
@@ -89,7 +89,9 @@
 	// echo $limit;  
 	$sqlNew='select * from cart_online where status=0 order by price desc $limit ';
 	 $sql1="select * from cart_online where status=0  order by bill desc $limit "; 
-		
+	 
+	 $result=$mysqli->query($sql1); 
+	//echo $sql1; 	
 ?>	
 
 <!DOCTYPE html>
@@ -118,7 +120,6 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	
     
-    <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/main_gray.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
@@ -149,19 +150,19 @@
                         <a class="page-scroll" href="indexNew.php" style="color:#696">Juju</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download" style="color:#696">Current Orders</a>
+                        <a class="page-scroll" href="newOrderA.php?log=in" style="color:#696">Current Orders</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#recent-works" style="color:#696">Take An Order</a>
+                        <a class="page-scroll" href="newTakeOrder.php?log=in" style="color:#696">Take An Order</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#map" style="color:#696">Orders Delivered</a>
+                        <a class="page-scroll" href="newFulfilled.php?log=in" style="color:#696">Orders Delivered</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Add</a>
+                        <a class="page-scroll" href="newAdd.php" style="color:#696">Add</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Balance Sheet</a>
+                        <a class="page-scroll" href="jujuGall.php" style="color:#696">Gallery</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
@@ -230,7 +231,7 @@
 							
 						</ul>
 					</li>
-					<li class="button animated fadeInDown" style="padding-left:5px;" ><a href="#" data-toggle='modal' data-target='#basicModal<?php echo $row[0]?>' style="padding-left:5px;" > Send Mail Confirmation</a></li>
+					<li class="button" style="padding-left:5px;"><a href="#" data-toggle='modal' data-target='#basicModal<?php echo $row[0]?>' style="padding-left:5px;"> Send Mail Confirmation</a></li>
                     <li class="button" style="padding-left:5px;"><a href="#" data-toggle='modal' data-target='#basicModal<?php echo $row[5]+2 ?>' style="padding-left:5px;"> View Order Details</a></li>
                     
 				</ul>
@@ -329,24 +330,26 @@
 					
 					// get the oid of the following customer here
 					
-					$sqlOrder="select p.*,p1.name,p1.category from product_online p,products1 p1 where p.oid='".$row[5]."' and p.id=p1.id "; 
-				 
+					//$sqlOrder="select p.*,p1.name,p1.category from product_online p,products1 p1 where p.oid='".$row[5]."' and p.id=p1.id "; 
+					
+					$sqlOrder="select p.*,c.bill from product_online2 p,cart_online c where c.oid='".$row[5]."'  and p.oid='".$row[5]."'"; 
+				 	//echo $sqlOrder1; 
 				 $mysqli1=new mysqli('localhost','root','','a9748231_user');
 				 
 				 $result1=$mysqli1->query($sqlOrder);
-				 
+				 $bill=0; 
 				 while($row2=$result1->fetch_array()){
 					 
-				 
+				 $bill=$row2[4]; 
 				   
 				 ?>
                  
                 <ul class="list-group">
-   					<li class="list-group-item"><span class="badge" style="position:relative; left:10px; top:-1px;">Quantity <?php echo $row2[2] ?></span><?php echo $row2[3]?></li>
+   					<li class="list-group-item"><span class="badge" style="position:relative; left:10px; top:-1px;">Quantity <?php echo $row2[3] ?></span><?php echo $row2[2]; ?></li>
    				<?php }
 				
 				?>	
-                <li class="list-group-item">Total Bill:<?php echo $row[1]?></li>
+                <li class="list-group-item">Total Bill: Rs<?php echo $bill; ?></li>
 			</ul>
                 
                 
@@ -390,7 +393,6 @@
 							}
 						}
 					}
-
 					
 					$paginationCtrls.=''.$curPage.'&nbsp;'; 
 					

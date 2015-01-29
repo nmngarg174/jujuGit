@@ -233,17 +233,19 @@ h1{
                         <a class="page-scroll" href="indexNew.php" style="color:#696">Juju</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="newAddItem.php" style="color:#696">Add An Item</a>
+                        <a class="page-scroll" href="newOrderA.php?log=in" style="color:#696">Current Orders</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#" style="color:#696">Add A Category</a>
+                        <a class="page-scroll" href="newTakeOrder.php?log=in" style="color:#696">Take An Order</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="newAddEmp.php?log=in" style="color:#696">Add Employee</a>
+                        <a class="page-scroll" href="newFulfilled.php?log=in" style="color:#696">Orders Delivered</a>
                     </li>
-                    
                     <li>
-                        <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
+                        <a class="page-scroll" href="newAdd.php" style="color:#696">Add</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="jujuGall.php" style="color:#696">Gallery</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>

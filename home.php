@@ -55,7 +55,7 @@
 	$name=$_SESSION['name']; 
 	
 	if(empty($name)){
-		header("Location:login1.php"); 	
+		header("Location:logOut.php?log=logout"); 	
 	}
 	
 	//securtiy check is performed now display the tables and the navigation bar ..
@@ -67,7 +67,7 @@
 	//create connection with mysql 
 	
 	$mysqli=new mysqli('localhost','root','','a9748231_user');
-	 $sql='select * from order1 where status=0'; 
+	 $sql='select * from cart_online where status=0'; 
 	 
 	 $result=$mysqli->query($sql);
 	 $count=$result->num_rows; 
@@ -92,6 +92,7 @@
 	 // use the query to generate the results relevant to the page 
 	 //echo $sql1; 
 	 $result=$mysqli->query($sql1);
+	 var_dump($result); 
 	// echo 'connected'; 
 	 
 		 	

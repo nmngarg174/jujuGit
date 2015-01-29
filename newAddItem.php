@@ -204,20 +204,19 @@ h1{
                     <li>
                         <a class="page-scroll" href="indexNew.php" style="color:#696">Juju</a>
                     </li>
+                    
                     <li>
-                        <a class="page-scroll" href="#download" style="color:#696">Add An Item</a>
+                        <a class="page-scroll" href="newAddItem.php" style="color:#696">Add An Item</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#recent-works" style="color:#696">Add A Category</a>
+                        <a class="page-scroll" href="newAdd.php?log=in" style="color:#696">Add A Category</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#map" style="color:#696">Add Employee</a>
+                        <a class="page-scroll" href="newAddEmp.php?log=in" style="color:#696">Add Employee</a>
                     </li>
+                    
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Add</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Change Password</a>
+                        <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>

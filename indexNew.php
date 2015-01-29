@@ -47,6 +47,8 @@
     }
     }
 </style>
+
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
@@ -73,7 +75,7 @@
                         <a class="page-scroll" href="#about">Juju</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="newOrderA.php">Current Orders</a>
+                        <a class="page-scroll" href="newOrderA.php?log=in">Current Orders</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="newTakeOrder.php?log=in">Take An Order</a>
@@ -89,7 +91,7 @@
                         <a class="page-scroll" href="newjujuGall.php">Gallery</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout">Log-Out</a>
                     </li>
                 </ul>
             </div>
@@ -280,10 +282,37 @@
     <script src="js/jquery.easing.min.js"></script>
 
     <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=14&size=640x640&key=AIzaSyDXSw9155vXJV-lLAomQNhWWL1i3tKcSaM"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
+	<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(30.3532934 , 76.3637091);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  icon:'pinkball.png'
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
 </body>
 
