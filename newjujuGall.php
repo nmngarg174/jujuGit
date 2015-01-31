@@ -1,4 +1,17 @@
 <?php
+
+	session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
+	error_reporting(0);
+	
 error_reporting(E_ALL);
 require_once 'Zend/Loader.php';
 Zend_Loader::loadClass('Zend_Gdata_Photos');
@@ -248,7 +261,7 @@ h1{
                         <a class="page-scroll" href="jujuGall.php" style="color:#696">Gallery</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout" style="color:#696">Log-Out</a>
                     </li>
                 </ul>
             </div>

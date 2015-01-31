@@ -100,8 +100,8 @@
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
-        <div class="row" style="position:relative ; top:-140px;">
-            <div class="col-lg-8 col-lg-offset-2">
+        <div class="row" style="position:relative ; top:-110px;">
+            <div class="col-lg-8 col-lg-offset-2" wow animated fadeInDown " data-wow-delay="0.2s">
                 <h2>About JuJu's</h2>
                 <p>Juju's is India's favourite coffee shop for the young and the young at heart. Popularly known as juju, we strive to provide the best experience to our guests. To put it plainly, we brought in the concept of cafes to India (this is where you thank us!) having same prices and games to play.</p>
                 <p>The first one opened in 1996 on Brigade Road in Bangalore and continues to be one of the most happening places in the city. The young and the young at heart immediately took to the place. A smart, simple space that they could call their own for a while… sit down, talk and listen to conversations, hold short meetings or even have a lot of good fun…all over steaming cups of coffee. CCD today is totally in tune with its target audience.</p>
@@ -117,7 +117,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>View Our Gallery</h2>
                     <p>You can view all the events happenings at JUJU's with album we share</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Gallery Page</a>
+                    <a href="newjujuGall.php?log=in" class="btn btn-default btn-lg">Visit Gallery Page</a>
                 </div>
             </div>
         </div>
@@ -248,6 +248,7 @@
         </div>
     </footer>
 
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -257,11 +258,40 @@
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+  
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=14&size=640x640&key=AIzaSyDXSw9155vXJV-lLAomQNhWWL1i3tKcSaM"></script>
+	
+	<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(30.3532934 , 76.3637091);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  icon:'pinkball.png'
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
 </body>
 

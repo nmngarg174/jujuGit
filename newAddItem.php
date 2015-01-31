@@ -3,7 +3,17 @@
 	// creating an adding menu for the juju application here 
 	
 	// how ? to add a new category or a new product for a specific category 
-	session_start(); 
+		session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
+	
 	$mysqli=new mysqli('localhost','root','','a9748231_user');
 	
 	$sql='select * from products1 group by category'; 
@@ -219,7 +229,7 @@ h1{
                         <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout" style="color:#696">Log-Out</a>
                     </li>
                 </ul>
             </div>

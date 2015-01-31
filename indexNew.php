@@ -1,3 +1,21 @@
+<?php 
+
+//include('html_encoder_1.9.php'); 
+error_reporting(0);
+		
+	session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
+	//echo $username; 
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,14 +47,7 @@
     <link href="css/main_gray.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     
-        <!--
-        HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries  usng the sublime ti edit the whole flow here and the del=ploying here -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+        
 </head>
 
 <style>
@@ -119,8 +130,8 @@
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
-        <div class="row" style="position:relative ; top:-140px;">
-            <div class="col-lg-8 col-lg-offset-2 wow animated fadeInDown " data-wow-delay="0.5s">
+        <div class="row" style="position:relative ; top:-110px;">
+            <div class="col-lg-8 col-lg-offset-2 wow animated fadeInDown " data-wow-delay="0.2s">
                 <h2>About JuJu's</h2>
                 <p>Juju's is India's favourite coffee shop for the young and the young at heart. Popularly known as juju, we strive to provide the best experience to our guests. To put it plainly, we brought in the concept of cafes to India (this is where you thank us!) having same prices and games to play.</p>
                 <p>The first one opened in 1996 on Brigade Road in Bangalore and continues to be one of the most happening places in the city. The young and the young at heart immediately took to the place. A smart, simple space that they could call their own for a while… sit down, talk and listen to conversations, hold short meetings or even have a lot of good fun…all over steaming cups of coffee. CCD today is totally in tune with its target audience.</p>

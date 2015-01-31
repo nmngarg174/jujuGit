@@ -118,18 +118,9 @@
                                 <h4 class="pull-right">Rs 50</h4>
                                 <h4><a href="#"><small><?php echo $row[1] ?></small></a>
                                 </h4>
-                                <p><a href="shopping.php?page=products&log=in&action=add&id=<?php echo $row[0]; ?>"><h5>Add To cart</h5></a></p>
+                                <p><a href="newTakeOrder.php?page=products&log=in&action=add&id=<?php echo $row[0]; ?>"><h5>Add To cart</h5></a></p>
                             </div>
-                            <!--<div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>-->
+                            
                         </div>
                     </div>
 

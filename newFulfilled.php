@@ -1,8 +1,18 @@
 <?php
 	
 	//create a log out session here 
+	error_reporting(0);
 	
-	session_start(); 
+		session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
 	//$log=''; 
 	$log=$_REQUEST['log']; 
 	error_reporting(0); 
@@ -127,7 +137,7 @@
                         <a class="page-scroll" href="newjujuGall.php">Gallery</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout">Log-Out</a>
                     </li>
                 </ul>
             </div>
@@ -147,7 +157,7 @@
 			
 			<div class='container-fluid' > 
             		            	            
-<table class='table table-hover' id='mytable' cellspacing="0" style="position:relative; top:-60px;">
+<table class='table table-hover' id='mytable' cellspacing="0" style="position:relative; top:-240px;">
 <thead>
 <tr> 	
 	<th>Sno.</th>

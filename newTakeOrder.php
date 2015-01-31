@@ -1,7 +1,17 @@
 <?php 
  	
-	session_start();
+	error_reporting(0);
 	
+		session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
 	// verify the session here
 	
 	$log=$_REQUEST['log'];
@@ -17,13 +27,19 @@
 	
 	$name=$_SESSION['name']; 
 	
-	// find the value for the name here
-	// create a logout button here and use it here
-	if(empty($name)){
-	//	header("Location:login1.php"); 
-	}
+	
 	
 	$mysqli=new mysqli('localhost','root','','a9748231_user');
+	
+	
+	if(isset($_GET['order'])){
+		// destroy the session object here 
+		//session_unset('cart');
+		//echo 'run';
+		unset($_SESSION['cart']); 	
+		//session_unset('cart'); 
+		
+	}
 	
 	if(isset($_GET['page'])){
 		
@@ -104,15 +120,6 @@ h1{
 	font-size:14px; 	
 }
 
-/*
-#container{
-	width:700px; 
-	margin::150px auto; 
-	backgroung-color:#eee; 
-	padding:15px; 	
-	overflow:hidden; 
-}
-*/
 #main{
 	width:490px; 
 	float:left; 	
@@ -247,7 +254,7 @@ h1{
                         <a class="page-scroll" href="jujuGall.php" style="color:#696">Gallery</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout" style="color:#696">Log-Out</a>
                     </li>
                 </ul>
             </div>
@@ -320,7 +327,7 @@ h1{
                              
                   <div class="col-md-2">
                   		
-                  <div class="shift animated fadeIn" ><span class="put"><a href='../../../Users/princEvil/Desktop/project/www.juju.in'><img src="images/juju.jpg"/></a></span> 
+                  <div class="shift animated fadeIn" ><span class="put"><a href='indexNew.php?log=in'><img src="images/juju.jpg"/></a></span> 
     
                 <h4>Juju Cart</h4>
                 
@@ -358,8 +365,8 @@ h1{
                                                
                         <hr /> 
                         
-                        <a href='cart.php' >Go to the cart page </a>
-                        
+                        <a href='newCart.php' >Go to the cart page </a><br>
+                        <a href='newTakeOrder.php?order=cancel'>Cancel Order</a>
                         <?php
 					}
 					

@@ -1,20 +1,8 @@
 <?php 
 	
-	//logOut.php?log=logout
-	// creating the log-out script here and finishing it here 
-	error_reporting(0);
+	// creating a cancel order script here 
 	
-	session_start(); 
 	
-	if(isset($_GET['log'])){
-		
-		if($_GET['log']=='logout'){
-			
-			
-		session_destroy();
-		header("Location:start.html");  
-		}
-	}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

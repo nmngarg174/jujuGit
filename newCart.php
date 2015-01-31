@@ -1,35 +1,35 @@
-<?php 
+
+<?php
 	
-	// creating an adding menu for the juju application here 
+	// creation of the php cart here and then executing it here
 	
-	// how ? to add a new category or a new product for a specific category 
-	error_reporting(0);
-	
-		session_start(); 
-	
-	if(isset($_SESSION['name'])){
-		
-		$username=$_SESSION['name'];  
-	}
-	
-	if($username==''){
-		header('Location:start.html'); 
-	}
-	
+	// check for the submit button here 
+	//session_start(); 
+	error_reporting(0); 
+	session_start(); 	
 	$mysqli=new mysqli('localhost','root','','a9748231_user');
 	
-	$sql='select * from products1 group by category'; 
+	if(isset($_POST['submit'])){
+			
+			//echo $_POST['quantity'];
+			foreach($_POST['quantity'] as $key => $value){
+				
+				
+				if($value==0){
+					unset($_SESSION['cart'][$key]); 	
+				}else{
+					
+					$_SESSION['cart'][$key]['quantity']=$value; 
+				}
+					
+			}
+			
+	}else{
+		//session_start(); 	
+	}
+	 
 	
-	// display all the categories in the boxes menu , how  ? 
-	
-	$result=$mysqli->query($sql);
-	
-		//fetch all the values for the category names from the db 
-		 
-	error_reporting(0);
-	  
-?>
-
+?> 
 <style>
 
 .jumbotron {
@@ -216,11 +216,12 @@ h1{
                     <li>
                         <a class="page-scroll" href="indexNew.php" style="color:#696">Juju</a>
                     </li>
+                    
                     <li>
                         <a class="page-scroll" href="newAddItem.php" style="color:#696">Add An Item</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#" style="color:#696">Add A Category</a>
+                        <a class="page-scroll" href="newAdd.php?log=in" style="color:#696">Add A Category</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="newAddEmp.php?log=in" style="color:#696">Add Employee</a>
@@ -242,72 +243,98 @@ h1{
 	
     <section id="about-us "  >
     
-        <div class="container " style="position:relative; top:40px;"  >
-			<div class='center hidden-xs wow fadeInDown animated'>
-				<h2 style="color:#696"></h2>
-				<p class="lead" style="color:#696"><br></p>
-	
-    
-    				<!-- srart -->
-                    
-                    
-    		</div>
+        <div class="container " style="position:relative; top:60px;"  >
+			
 			
             
 			<!-- about us slider -->
             
-            
-                    <?php echo $_SESSION['message'] ?>
-                    	<div class='col-md-3' style="position:relative; left:25px; ">
+<h2>Cart Page</h2>
 
-                            <form class='form-horizontal' role='form' action='image.php' method="post" enctype="multipart/form-data">
-                            	<div class='form-group'>
-
-                                    
-                                    <label for='sel'>Select a category</label>
-                                    
-                                		<select class='form-control' id='sel' name='category'>
-                                        <?php
-									while($row=$result->fetch_array()){
-		
-			// show the value for the category in the select boxes 
-			
+<form  action='cart.php' method='post'> 
 	
-									?>
-                                        	<option value='<?php echo $row[2] ?>'><?php echo $row[2] ?></option>
-                                            <?php
-								
-									}
-									
-									?>
-                                            
-                                        </select>
-                                </div>
-                                
-                                <div class='form-group'>
-                                
-                                    
-                                	<label for='name' class='control-label'>Enter the item</label>
-                                    
-                                	<input type="text" id='name' name='name' class="form-control"   />
-                                   
-                                </div>
-                                <div class='form-group' style="position:relative; left:10px;">
-                                <label for='upload' class='control-label'>Upload the image </label>
-                                	 <input type="file" name='upload' id='upload'  />
-                                </div>
-                                <br />
-                                <div class='form-group'>
-                                <button type="submit" name='item' class='btn btn-default'>Enter the item</button>
-                                </div>
-                                     </form>
-                        </div>
-                       
-  </div>
-
-            
-            <!-- end -->
+    <table class='table'> 
+    	
+        <tr> 
+        	<th>Sno.</th>
+        	<th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Item Price</th>
+        </tr>
+        <?php
 			
+			$sql_c="select * from products1 where id in ("; 
+					
+					foreach($_SESSION['cart'] as $id=>$value){
+						$sql_c.=$id.",";
+					}
+					
+					// subtract the comma from the end here
+					$sql_c=substr($sql_c,0,-1).") order by id asc"; 
+					
+					//echo $sql_c; 
+					
+					// print all the items in the cart here 
+					
+					$result=$mysqli->query($sql_c);
+					$totalPrice=0;  
+					if($result->num_rows>0){
+						
+						while($row=$result->fetch_array()){
+							$subTotal=$_SESSION['cart'][$row['id']]['quantity']*$row['price']; 
+							$totalPrice+=$subTotal; 
+		?>
+        
+        <tr> 	
+        	<td><?php echo $row[0]?> </td>
+            <td> <?php echo $row[1] ?></td>
+            <td><input type="text" name="quantity[<?php echo $row[0] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id']]['quantity'] ?>" />  </td>
+            <td> <?php echo $row[2] ?></td>
+            
+            <td> <?php  echo $_SESSION['cart'][$row['id']]['quantity']*$row['price']  ?>Rs</td>
+        </tr>
+        
+        
+    <?php
+						}
+					}
+					// now print the total price of the items here and then show the value here
+					// create a cancel order button as well here
+					
+	?>
+    	<tr> 	
+        	<td>Total Price : <?php echo $totalPrice ; $_SESSION['totalPrice']=$totalPrice; ?> </td>
+            </tr>
+    </table>
+<br />
+<hr />
+<!--<input type='submit' value='Update the Cart' name='submit' />-->
+
+
+<button type='submit' name='submit' class='btn btn-default'>Update The Cart</button>
+<a href='print.php' class="btn btn-default"  target="_blank">
+            
+            Print Invoice
+            </a>
+            <a href='newTakeOrder.php?order=cancel' class="btn btn-default"  ">
+            
+            Cancel the Order
+            </a>
+</form>
+<!--
+<form action='print.php' method="post" style="float:left">  
+	<button type='submit' name='print' value='Print the Bill' class='btn btn-default'>Print Invoice</button>
+ 
+</form>
+-->
+<br /> 
+            
+			                </div>
+           
+                        <div class='col-md-2'>
+                        </div>
+                        
                 </div>
 </div>           
                 	

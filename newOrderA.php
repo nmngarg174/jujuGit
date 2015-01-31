@@ -3,7 +3,18 @@
 	// include the auto scroll feature into the php projct 
 	//create a log out session here 
 	// remove the jquery from the navigation bar here
-	//error_reporting(0); 
+	error_reporting(0);
+	
+		session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	} 
 	$pageNew = $_SERVER['PHP_SELF'];
 	$pageNew.='?log=in';
 	$sec = "240";
@@ -165,7 +176,7 @@
                         <a class="page-scroll" href="jujuGall.php" style="color:#696">Gallery</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout" style="color:#696">Log-Out</a>
                     </li>
                 </ul>
             </div>

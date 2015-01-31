@@ -1,6 +1,17 @@
 <?php 
 	// adding the category to the database using the normalization 
-	session_start(); 
+	error_reporting(0);
+	
+		session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
 	error_reporting(0); 
 	
 	$mysqli=new mysqli('localhost','root','','a9748231_user');
@@ -25,7 +36,7 @@
 //	echo $sql;
 	if($mysqli->query($sql)){
 			$_SESSION['message1']='Category is inserted'; 
-			echo 'bjhbjh';
+			//echo 'bjhbjh';
 		}
 	}
 ?>
@@ -230,7 +241,7 @@ h1{
                         <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout" style="color:#696">Log-Out</a>
                     </li>
                 </ul>
             </div>
@@ -264,7 +275,7 @@ h1{
                             <div class='col-md-4'>
                             </div>
                             <div class='col-md-4'>
-                            <form class='form-horizontal' role='form' action='addCategory.php' method="post" enctype="multipart/form-data">
+                            <form class='form-horizontal' role='form' action='newAdd.php' method="post" enctype="multipart/form-data">
                             	
                                 <div class='form-group'>
                                 

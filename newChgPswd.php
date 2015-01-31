@@ -1,47 +1,60 @@
 <?php
 	
 	//changing the password 
+	// script not working here
 	
+	error_reporting(0);
 	
-	session_start(); 
-	error_reporting(0); 
+		session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
+	
+	//error_reporting(0); 
 	if(isset($_POST['submit']))
 	{
 		
 		$pwd1=$_POST['pwd1']; 
 		//echo $name; 
-		echo $pwd1; 
+		//echo $pwd1; 
 		$pwd2=$_POST['pwd2']; 
 		//echo $password;
-			echo $pwd2 ; 
+			//echo $pwd2 ; 
 		$pwd3=$_POST['pwd3'];
-			echo $pwd3; 
+			//echo $pwd3; 
 		$mysqli=new mysqli('localhost','root','','a9748231_user');
 		
 		if(!strcmp($pwd2,$pwd3)){
-			echo 'match';	
+			//echo 'match';	
 				$sql1='select password from retailer where name="'.$_SESSION['name'].'"';
-				echo $sql1;  
+				//echo $sql1;  
 				$result=$mysqli->query($sql1); 
 				$row=$result->fetch_array(); 
-				echo $row[0]; 
+				//echo $row[0]; 
 				
 				if(!strcmp($pwd1,$row[0])){
 					
 					//change the password 
 					
 					$sql3='update retailer set password="'.$pwd2.'" where name="'.$_SESSION['name'].'"';
-					echo $sql3; 
+				//	echo $sql3; 
 					if($mysqli->query($sql3)){
-							$_SESSION['message']='Password updated successfully';
+							$_SESSION['messagePSWD']='Password updated successfully';
+							unset($_SESSION['errmsg']);
 					}else{
-						echo 'error occured' ; 	
+					//	echo 'error occured' ; 	
 					}	
 				}
 				 
 		}else{
 			$_SESSION['errmsg']='New passwords dont match'; 
-				
+			unset($_SESSION['messagePSWD']);	
 		}
 		
 		//$sql='insert into retailer(name,password) values("'.$name.'","'.$password.'") ';
@@ -254,7 +267,7 @@ h1{
                         <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout" style="color:#696">Log-Out</a>
                     </li>
                     
                 </ul>
@@ -276,15 +289,17 @@ h1{
                     <div class='row'>
                     <h1 style="position:relative; left:25px; color:#666;"><center>Change the password</center></h1>
                     
-                    <div class='text-danger' style="position:relative; left:20px; ">
-                    <?php echo $_SESSION['message'] ?>
+                    <div class='text-danger' style="position:relative; left:20px; "><center>
+                    <?php echo $_SESSION['messagePSWD'] ?>
+                    <?php echo $_SESSION['errmsg']?>
+                    </center>
                     </div>
                     <div class='col-md-4'>
                     </div>
                     	<div class='col-md-4' style="position:relative; left:25px; text-align:center;">
                         	<!-- To add an item in the menu we populate a list of all the categories , after selecting the category he uploads a file and writes its name there  
                             -->
-                            <form class='form-horizontal' role='form' action='chgPasswd.php' method="post" enctype="multipart/form-data">
+                            <form class='form-horizontal' role='form' action='newChgPswd.php' method="post" enctype="multipart/form-data">
                             	
                                 <div class='form-group'>
                                 

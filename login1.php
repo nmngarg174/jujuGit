@@ -1,5 +1,6 @@
 
 <?php 
+	error_reporting(0);
 	
 	//creation of a session and a cookie as well for the previously stored values 
 	$erruser='';
@@ -28,10 +29,10 @@
 		
 		$name=addslashes($_POST['name']); 
 		$password=addslashes($_POST['password']);
-		echo $name; 
-		echo $password; 
+		//echo $name; 
+		//echo $password; 
 		if(empty($name)){
-				//use vijay code to show the error message 
+				//use code to show the error message 
 			//	die('Please enter the username '); 
 				$erruser='Please enter the username'; 
 		}
@@ -44,7 +45,7 @@
 	
 	if(!empty($password) and !empty($name)){
 	
-	$mysqli=new mysqli('localhost','root','','a9602059_user'); 
+	$mysqli=new mysqli('localhost','root','','a9748231_user'); 
 	
 			$sql=("select * from retailer where name='".$name."' and password='".$password."'");
 			

@@ -2,8 +2,24 @@
 
 
 // to add an employee we insert the emp into the database here 
-	session_start(); 
-	error_reporting(0); 
+error_reporting(0);
+	
+		session_start(); 
+	
+	if(isset($_SESSION['name'])){
+		
+		$username=$_SESSION['name'];  
+	}
+	
+	if($username==''){
+		header('Location:start.html'); 
+	}
+	
+	if(!isset($_SESSION['name'])){
+		
+		header("Location:start.html"); 
+	}
+	//error_reporting(0); 
 	if(isset($_POST['submit']))
 	{
 		
@@ -11,7 +27,7 @@
 		//echo $name; 
 		
 		$password=$_POST['password']; 
-		echo $password; 
+		//echo $password; 
 		$sql='insert into retailer(name,password) values("'.$name.'","'.$password.'") ';
 		
 		// after insertion 
@@ -19,7 +35,7 @@
 		$mysqli=new mysqli('localhost','root','','a9748231_user');
 		
 		  if($mysqli->query($sql)){
-			echo 'naman';
+			//echo 'naman';
 		 	
 			$_SESSION['message']='Employee is added';
 			 
@@ -232,7 +248,7 @@ h1{
                         <a class="page-scroll" href="newChgPswd.php" style="color:#696">Change Password</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login1.php" style="color:#696">Log-Out</a>
+                        <a class="page-scroll" href="logOut.php?log=logout" style="color:#696">Log-Out</a>
                     </li>
                 </ul>
             </div>
@@ -253,15 +269,16 @@ h1{
              <div class='row'>
                     <h1 style="position:relative; left:25px; color:#666;"><center>Add an Employee</center></h1>
                     
-                    <div class='text-danger' style="position:relative; left:20px; ">
+                    <div class='text-danger' style="position:relative; left:20px; "><center>
                     <?php echo $_SESSION['message'] ?>
+                    </center>
                     </div>
                     <div class='col-md-4'>
                     </div>
                     	<div class='col-md-4' style="position:relative; left:25px; text-align:center;">
                         	<!-- To add an item in the menu we populate a list of all the categories , after selecting the category he uploads a file and writes its name there  
                             -->
-                            <form class='form-horizontal' role='form' action='addEmp.php' method="post" enctype="multipart/form-data">
+                            <form class='form-horizontal' role='form' action='newAddEmp.php' method="post" enctype="multipart/form-data">
                             	
                                 <div class='form-group'>
                                 

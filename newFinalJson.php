@@ -1,5 +1,7 @@
 <?php 
 	
+	// how to get the values from the android phone here 
+	
 	
 	$mysqli=new mysqli('localhost','root','','a9748231_user'); 
 	
@@ -14,9 +16,12 @@
 	
 	echo $oid; 
 	
-	$name='naman garg'; 
+	//$name='naman garg'; 
 	$email='nmngarg174@gmail.com';
 	
+	//$name=$_POST['name']; 
+	//$email=$_POST['email'];
+	//$password=$_POST['password'];  
 	// from the mail and password get all the values here 
 	
 	$sqlR='select * from userlogin where email="'.$email.'"'; 
@@ -34,6 +39,8 @@
 	echo $phone;
 	echo '<br>';  
 	// now insert the values into the database here
+	//$food=$_POST['food']; 
+	/*
 	$food='{
 			
 			"category":["burger","pizza","drinks"],
@@ -52,6 +59,29 @@
 		
 		
 	}'; 
+	
+	
+	*/
+	
+	$food='{
+    "category": [ "sandwich" , "icecream" , "Burger" ],
+    "sandwich" : { "Cheese Tomato" : "1",
+    "null" : "null",
+    "null" : "null"  },
+    "icecream" : { "Strawberry" : "1",
+    "Chocolate" : "1",
+    "Tutti Frutti" : "1",
+    "Pineapple" : "2",
+    "Jujus Shake" : "1",
+    "Butterscotch" : "1",
+    "Vanilla" : "1"  },
+    "Burger" : { "Veg Hot Dog" : "1",
+    "Non-Veg Hot Dog" : "1",
+    "2 Hot Salami" : "2",
+    "Must-erred Cottage" : "2",
+    "Jujus Bun Samosa" : "1",
+    "Veggie Fab." : "1"  }
+    }';
 	
 	// understand the json concept throughly here
 	// parse the above string here then store in the database here and then display it to the vendor here
