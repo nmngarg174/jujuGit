@@ -14,6 +14,16 @@ error_reporting(0);
 		header('Location:start.html'); 
 	}
 	//echo $username; 
+	$mysqli=new mysqli('localhost','root','','a9748231_user'); 
+	 
+	$sqlS='select status from juju';
+	
+	$resultS=$mysqli->query($sqlS);
+	 
+	$rowS=$resultS->fetch_array();
+	 
+	$status=$rowS[0];  	
+	
 	
 ?>
 <!DOCTYPE html>
@@ -82,9 +92,7 @@ error_reporting(0);
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#about">Juju</a>
-                    </li>
+                    
                     <li>
                         <a class="page-scroll" href="newOrderA.php?log=in">Current Orders</a>
                     </li>
@@ -103,6 +111,12 @@ error_reporting(0);
                     </li>
                     <li>
                         <a class="page-scroll" href="logOut.php?log=logout">Log-Out</a>
+                    </li>
+                    <li>
+                    			<?php if($status==1){ ?><a href='jujuOnOff.php?log=in' style="color:#0F0">ANDROID : ON</a>
+                                <?php }else{ ?>
+                                <a href='jujuOnOff.php' style="color:#F00">ANDROID : OFF</span></a>
+                                <?php } ?>
                     </li>
                 </ul>
             </div>
@@ -134,7 +148,7 @@ error_reporting(0);
             <div class="col-lg-8 col-lg-offset-2 wow animated fadeInDown " data-wow-delay="0.2s">
                 <h2>About JuJu's</h2>
                 <p>Juju's is India's favourite coffee shop for the young and the young at heart. Popularly known as juju, we strive to provide the best experience to our guests. To put it plainly, we brought in the concept of cafes to India (this is where you thank us!) having same prices and games to play.</p>
-                <p>The first one opened in 1996 on Brigade Road in Bangalore and continues to be one of the most happening places in the city. The young and the young at heart immediately took to the place. A smart, simple space that they could call their own for a while… sit down, talk and listen to conversations, hold short meetings or even have a lot of good fun…all over steaming cups of coffee. CCD today is totally in tune with its target audience.</p>
+                <p>The first one opened in 1996 on Brigade Road in Bangalore and continues to be one of the most happening places in the city. The young and the young at heart immediately took to the place. A smart, simple space that they could call their own for a while… sit down, talk and listen to conversations, hold short meetings or even have a lot of good fun…all over steaming cups of coffee. JUJU today is totally in tune with its target audience.</p>
                 <p>It's been an exciting journey till now, moving forward to become the largest organized retail cafe chain in the country.</p>
             </div>
         </div>
@@ -272,11 +286,7 @@ error_reporting(0);
     <div id="map"></div>
 
     <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Your Website 2014</p>
-        </div>
-    </footer>
+    
 
     <!-- jQuery -->
     <script src="js/wow.min.js" ></script>

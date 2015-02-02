@@ -57,7 +57,7 @@
 			//	echo print_r($_SESSION['cart']); 
 			?>
             
-             <table>
+             <!--<table>-->
             	
                  <?php 
 	
@@ -86,7 +86,7 @@
                  	<td ><h3><?php //echo ucwords($category) ?></h3></td>
              
              </div>-->
-             </tr>
+             
              <div class="row">
              <div id='<?php echo strtolower($category)?>'>
              </div>
@@ -112,30 +112,19 @@
 		
 
                     <div class="col-md-4">
-                        <div class="thumbnail" style="height:260px; width:200px;   ">
+                        <div class="thumbnail" style="height:200px; width:200px;   ">
                             <?php echo '<img class="img-rounded" style="height:100px; width:100px;" src="data:image/jpeg;base64,'.base64_encode( $row['images'] ).'"/>' ?>
                             <div class="caption">
                                 <h4 class="pull-right">Rs 50</h4>
                                 <h4><a href="#"><small><?php echo $row[1] ?></small></a>
                                 </h4>
-                                <p><a href="newTakeOrder.php?page=products&log=in&action=add&id=<?php echo $row[0]; ?>"><h5>Add To cart</h5></a></p>
+                                <p><a href="newTakeOrder.php?page=products&log=in&action=add&id=<?php echo $row[0]; ?>"><h6>Add To cart</h6></a></p>
                             </div>
                             
                         </div>
                     </div>
 
-				
-
-<!--
-                 <tr> 
-                 	<td><?php //echo $row[1] ?></td>
-                    <td><?php //echo $row[3] ?></td>
-                    <td><?php //echo $row[2] ?></td>
-                    <td><?php //echo '<img class="img-rounded" style="height:100px; width:100px;" src="data:image/jpeg;base64,'.base64_encode( $row['images'] ).'"/>' ?></td>
-
-                    <td><a href="shopping.php?page=products&log=in&action=add&id=<?php //echo $row[0]; ?>">Add To cart</a></td>
-                 </tr>
-    -->             
+			          
             
     <?php 
 			}else{
@@ -148,5 +137,5 @@
         <?php
 	  }
 	?>        
-            </table>
+            <!--</table>-->
                

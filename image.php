@@ -1,7 +1,6 @@
 
 <?php
 
-	// uploading a php file over the directory containing images otherwise upload the default image here  and then the database here , convert all the images to jpg and resize them using the gd image library of php 
 	
 	$fileName=$_FILES['upload']['name']; 
 	$fileTmp=$_FILES['upload']['tmp_name']; 
@@ -84,7 +83,7 @@
 	$name=$_POST['name'];
 	$id[0]+=1; 
 	echo $id[0]; 
-	$target='C:/wamp/www/ajaxRavinder/JUJUApplication/images/uploads/'.$end[0].'.jpg';
+	$target='C:/wamp/www/ajaxRavinder/jujuGit/images/uploads/'.$end[0].'.jpg';
 	echo $name; 
 	echo $target; 
 	
@@ -98,7 +97,7 @@
 	}
 	 
 	 // also make the updateStatus for the correspoinding cate 1 in the other table herer 
-	 
+	 // image is working but not inserted here , why ? 
 	 $sqlUpdate='update addcategory set updateStatus=1 where category="'.$category.'"';
 	 session_start(); 
 	 

@@ -390,48 +390,55 @@
 					if($curPage>1){
 						$previous=$curPage-1;
 						//printing the previous page link here 
-						$paginationCtrls.='<a href="'.$_SERVER['PHP_SELF'].'?log=in&&pgNum='.$previous.'">Previous</a> &nbsp &nbsp';
+						$paginationCtrls.='<li><a href="'.$_SERVER['PHP_SELF'].'?log=in&&pgNum='.$previous.'">Previous</a></li> &nbsp &nbsp';
 						
 						// displaying the previous 4 pages here
 						//echo 'print'; 
-						for($i=$curPage-4;$i<$curPage;$i++){
+						//$paginationCtrls.='<ul class="pagination">';
+						for($i=$curPage-2;$i<$curPage;$i++){
 							
 							if($i>0){
 								// attach the pages here	
-								$paginationCtrls.='<a href="'.$_SERVER['PHP_SELF'].'?log=inpgNum='.$i.'">'.$i.'</a> &nbsp';
+								$paginationCtrls.='<li class="active"><a href="'.$_SERVER['PHP_SELF'].'?log=inpgNum='.$i.'">'.$i.'</a></li> &nbsp';
 								
 								 
 							}
 						}
 					}
 					
-					$paginationCtrls.=''.$curPage.'&nbsp;'; 
+					$paginationCtrls.='<li class="disabled"><a href="#">'.$curPage.'</a></li> &nbsp;'; 
 					
 					
 					for($i=$curPage+1;$i<$last;$i++){
 						
 						// vsry the ctrl section 
 						
-						$paginationCtrls.='<a href="'.$_SERVER['PHP_SELF'].'?log=in&&pgNum='.$i.'">'.$i.'</a> &nbsp'; 
-						if($i>$curPage+4)
+						$paginationCtrls.='<li class="active"><a href="'.$_SERVER['PHP_SELF'].'?log=in&&pgNum='.$i.'">'.$i.'</a></li> &nbsp'; 
+						if($i>$curPage+2)
 							break; 
 							
 					}
+					//$paginationCtrls.='</ul>';
+						
 					// include the next page option here when there is only 1 page or multiple pages 
 					
 					if($curPage!=$last-1){
 						
 					$next=$curPage+1; 
-					$paginationCtrls.='<a href="'.$_SERVER['PHP_SELF'].'?log=in&&pgNum='.$next.'">NEXT</a> &nbsp;';
+					$paginationCtrls.='<li><a href="'.$_SERVER['PHP_SELF'].'?log=in&&pgNum='.$next.'">NEXT</a></li> &nbsp;';
 					
 					}
+					?>
+                    <ul class='pagination'>
+                    
+                    <?php 
 					echo $paginationCtrls;
 					 
 				}
 			
 			
 			?>
-		
+		</ul>
 	
             </div >
             <div class='' data-wow-duration="1000ms" data-wow-delay="600ms">

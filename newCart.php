@@ -251,7 +251,7 @@ h1{
             
 <h2>Cart Page</h2>
 
-<form  action='cart.php' method='post'> 
+<form  action='newCart.php' method='post'> 
 	
     <table class='table'> 
     	
@@ -313,7 +313,7 @@ h1{
 
 
 <button type='submit' name='submit' class='btn btn-default'>Update The Cart</button>
-<a href='print.php' class="btn btn-default"  target="_blank">
+<a href='print.php?log=in' class="btn btn-default"  target="_blank">
             
             Print Invoice
             </a>

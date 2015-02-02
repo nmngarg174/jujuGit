@@ -61,6 +61,42 @@
  
 ?>
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>JuJu's Cafe</title>
+	
+     <link href="css/grayscale.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+    <!-- Custom CSS -->
+   
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	
+    
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main_gray.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    
+ 
+</head>
+
 <style>
 
 .jumbotron {
@@ -115,10 +151,6 @@ h1,h2{
 	margin-bottom:15px; 	
 }
 
-h1{
-	font-size:18px; 
-	font-size:14px; 	
-}
 
 #main{
 	width:490px; 
@@ -172,47 +204,24 @@ h1{
 	
 </style>
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>JuJu's Cafe</title>
+<script> 
 	
-     <link href="css/grayscale.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
-    <!-- Custom CSS -->
-   
+	$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-	
-    
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/main_gray.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+</script>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
 
     <!-- Navigation -->
@@ -327,9 +336,9 @@ h1{
                              
                   <div class="col-md-2">
                   		
-                  <div class="shift animated fadeIn" ><span class="put"><a href='indexNew.php?log=in'><img src="images/juju.jpg"/></a></span> 
+                  <div class="shift animated fadeIn" ><span class="put"><a href='indexNew.php?log=in'><img src="images/logo.png"/></a></span> 
     
-                <h4>Juju Cart</h4>
+                <h5>Juju Cart</h5>
                 
                 <?php 
                 if(isset($_SESSION['cart'])){
@@ -354,14 +363,14 @@ h1{
 						while($row=$result->fetch_array()){
 							// print all the values of the cart here
 							?>
-                            
+                            <h3>
                             <p> <?php  echo $row['name'] ?> x <?php  echo $_SESSION['cart'][$row['id']]['quantity'] ?> </p>
                             <?php
 							
 						}
 						 // draw the line 
 						?>
-                        
+                        </h3>
                                                
                         <hr /> 
                         
@@ -380,8 +389,7 @@ h1{
        <br />
        <br />
        <br />
-       			          <a href='search.php?log=logout'><button class='btn btn-danger' style="float:right;" name='log'>Log Out</button></a>
-      
+       			          
         </div>
                     		
       
@@ -402,6 +410,10 @@ h1{
 	
 </section>
     
+	
+
+
+</body>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -417,7 +429,23 @@ h1{
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
+	
+<script> 
+	
+	$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 
-</body>
-
+</script>
 </html>

@@ -246,13 +246,13 @@ h1{
 			
             <h1 style="position:relative; left:25px; color:#666"><center>Add An Item</center></h1>
                     <div class='text-danger' style="position:relative; left:20px; ">
-                    <?php echo $_SESSION['message1'] ?>
+                    <?php echo $_SESSION['message'] ?>
                     </div>
 			<!-- about us slider -->
             
             <div class='col-md-4'>
             </div>
-                    <?php echo $_SESSION['message'] ?>
+                    <?php //echo $_SESSION['message'] ?>
                     	<div class='col-md-4' style="position:relative; left:25px; ">
 
                             <form class='form-horizontal' role='form' action='image.php' method="post" enctype="multipart/form-data">
